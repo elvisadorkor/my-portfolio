@@ -128,7 +128,7 @@ section{
     background: #87CEFA;
 }
 
-#about > p:first-of-type{
+#about > h2{
   animation: 1.5s ease-out 0s 1 slideInFromLeft;
   font-size: 28px;
   padding-top: 150px;
@@ -137,7 +137,7 @@ section{
   color: white;
 }
 
-#about >  p:nth-of-type(2){
+#about >  p{
   font-size: 20px;
   padding-top: 20px;
   text-align: center;

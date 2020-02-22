@@ -25,6 +25,7 @@
 body {
     font-family: 'Avenir Next',sans-serif;
     scroll-behavior: smooth;
+    background: #87CEFA;
 }
 
 #img {
@@ -56,7 +57,7 @@ body {
 #top_nav a{
     text-decoration: none;
     font-weight: 600;
-    color: black;
+    color: white;
 }
 
 #main{
@@ -64,7 +65,7 @@ body {
 }
 
 #main > p:first-of-type{
-  font-size: 32px;
+  font-size: 40px;
   font-variant: normal;
   font-weight: 600;
   text-align: left;
@@ -78,7 +79,7 @@ body {
   font-weight: 600;
   text-align: left;
   margin-left: 50px;
-  color: black;
+  color: white;
 }
 
 
@@ -87,7 +88,7 @@ body {
   font-weight: 600;
   text-align: left;
   margin-left: 50px;
-  color: black;
+  color: white;
 }
 
 #main > p:nth-of-type(4){
@@ -96,7 +97,7 @@ body {
   font-weight: 400;
   text-align: left;
   margin-left: 50px;
-  color: black;
+  color: white;
 }
 
 #social > ul{
@@ -107,14 +108,40 @@ body {
   list-style: none;
   justify-content: space-around;
   width: 20%;
+  animation: 1.5s ease-out 0s 1 slideInFromLeft;
 }
 
 
 section{
     min-height: 100vh;
+
 }
 
 #banner {
     width: 100%;
+    background: #87CEFA;
 
+}
+
+#about {
+    width: 100%;
+    background: #87CEFA;
+}
+
+#about > p:first-of-type{
+  animation: 1.5s ease-out 0s 1 slideInFromLeft;
+  font-size: 28px;
+  padding-top: 150px;
+  font-weight: 800;
+  text-align: center;
+  color: white;
+}
+
+#about >  p:nth-of-type(2){
+  font-size: 20px;
+  padding-top: 20px;
+  text-align: center;
+  margin-left: 500px;
+  margin-right: 500px;
+  animation: 1.5s ease-out 0s 1 slideInFromRight;
 }

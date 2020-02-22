@@ -64,6 +64,8 @@ body {
   animation: 1.5s ease-out 0s 1 slideInFromRight;
 }
 
+
+
 #main > p:first-of-type{
   font-size: 40px;
   font-variant: normal;
@@ -74,7 +76,7 @@ body {
   color: black;
 }
 
-#main > p:nth-of-type(2){
+#main > p:nth-of-type(2), #main > p:nth-of-type(3) {
   font-size: 32px;
   font-weight: 600;
   text-align: left;
@@ -82,14 +84,6 @@ body {
   color: white;
 }
 
-
-#main > p:nth-of-type(3){
-  font-size: 32px;
-  font-weight: 600;
-  text-align: left;
-  margin-left: 50px;
-  color: white;
-}
 
 #main > p:nth-of-type(4){
   margin-top: 100px;

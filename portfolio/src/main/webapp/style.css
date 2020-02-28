@@ -141,3 +141,12 @@ section{
   margin-right: 500px;
   animation: 1.5s ease-out 0s 1 slideInFromRight;
 }
+
+#about > button{
+  background-color: white;
+  font-size: 20px;
+  font-weight: 300;
+  text-align: center;
+  margin-left: 680px;
+  margin-right: 500px;   
+}

@@ -31,15 +31,14 @@ public final class FunFactServlet extends HttpServlet {
   @Override
   public void init() {
     funFacts = new ArrayList<>();
-    funFacts.add(
-        "I have never shaved my moustache");
-    funFacts.add("I got my first computer when I was 18");
-    funFacts.add("I am super scared of heights, almost passed out a six flags last summer");
-    funFacts.add("Cereal before milk, people");
-    funFacts.add("I saw Jaden Smith, Young Thug and J Cole in one night");
-    funFacts.add("I have seen Khalid live too!");
-    funFacts.add("I am so bad at swimming");
-    funFacts.add("I'm a bad dancer too");
+    funFacts.add("I have never shaved my moustache.");
+    funFacts.add("I got my first computer when I was 18.");
+    funFacts.add("I am super scared of heights, almost passed out a six flags last summer.");
+    funFacts.add("Cereal before milk, people.");
+    funFacts.add("I saw Jaden Smith, Young Thug and J Cole in one night.");
+    funFacts.add("I have seen Khalid live.");
+    funFacts.add("I am so bad at swimming.");
+    funFacts.add("I'm a bad dancer too.");
   }
 
   @Override

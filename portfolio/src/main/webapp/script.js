@@ -14,7 +14,30 @@
 
 
 function getFunFactsUsingArrowFunctions() {
-  fetch('/fun-facts').then(response => response.text()).then((funFact) => {
+  fetch('/data').then(response => response.text()).then((funFact) => {
     document.getElementById('fun-fact-container').innerText = funFact;
   });
+}
+
+function getFacts() {
+  fetch('/data').then(response => response.json()).then((funFacts) => {
+
+    const funFactsListElement = document.getElementById('fun-fact-container');
+    funFactsListElement.innerHTML = '';
+    funFactsListElement.appendChild(
+        createListElement('Fact 1: ' + funFacts[0]));
+        console.log(funFacts[0]);
+    funFactsListElement.appendChild(
+        createListElement('Fact 2: ' + funFacts[1]));
+        console.log(funFacts[1]);
+    funFactsListElement.appendChild(
+        createListElement('Fact 3: ' + funFacts[2]));
+        console.log(funFacts[2]);
+  });
+}
+
+function createListElement(text) {
+  const liElement = document.createElement('li');
+  liElement.innerText = text;
+  return liElement;
 }

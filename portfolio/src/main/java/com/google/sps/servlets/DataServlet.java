@@ -28,26 +28,29 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/data")
 public final class DataServlet extends HttpServlet {
 
-  private List<String> funFacts;
+  private List<String> comments;
 
   @Override
   public void init() {
-    funFacts = new ArrayList<>();
-    funFacts.add("Kevin Durant is my favorite basketball player.");
-    funFacts.add("I got my first computer when I was 18.");
-    funFacts.add("Python is my favorite programming language.");
+    comments = new ArrayList<String>();
   }
 
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
     //convert funFacts to json
-    String json = new Gson().toJson(funFacts);
+    String json = new Gson().toJson(comments);
     //send JSON as response
     response.setContentType("application/json;");
     response.getWriter().println(json);
   }
 
-  
+  public void doPost(HttpServletRequest request,  HttpServletResponse response) throws IOException {
+    // Get the input from the form.
+    String comment = request.getParameter("comment");
+    comments.add(comment);  
+    response.setContentType("text/html;");
+    response.getWriter().println(comments);
+    }
 }
 
 

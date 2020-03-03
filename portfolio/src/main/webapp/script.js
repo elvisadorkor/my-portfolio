@@ -13,31 +13,25 @@
 // limitations under the License.
 
 
-function getFunFactsUsingArrowFunctions() {
-  fetch('/data').then(response => response.text()).then((funFact) => {
-    document.getElementById('fun-fact-container').innerText = funFact;
+
+//import comments to html page and print on console
+function getComments() {
+  fetch('/data').then(response => response.json()).then((comments) => {
+
+    const commentsListElement = document.getElementById('comment-container');
+    commentsListElement.innerHTML = '';
+    var i = 0;
+    for (i = 0; i < comments.length; i++){
+        commentsListElement.appendChild(
+        createListElement('Comment: ' + comments[i]));
+        console.log(comments[i]);
+    }
   });
 }
 
-function getFacts() {
-  fetch('/data').then(response => response.json()).then((funFacts) => {
-
-    const funFactsListElement = document.getElementById('fun-fact-container');
-    funFactsListElement.innerHTML = '';
-    funFactsListElement.appendChild(
-        createListElement('Fact 1: ' + funFacts[0]));
-        console.log(funFacts[0]);
-    funFactsListElement.appendChild(
-        createListElement('Fact 2: ' + funFacts[1]));
-        console.log(funFacts[1]);
-    funFactsListElement.appendChild(
-        createListElement('Fact 3: ' + funFacts[2]));
-        console.log(funFacts[2]);
-  });
-}
-
-function createListElement(text) {
+//create list element
+function createListElement(comment) {
   const liElement = document.createElement('li');
-  liElement.innerText = text;
+  liElement.innerText = comment;
   return liElement;
 }

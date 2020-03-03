@@ -45,11 +45,20 @@
             to almost every one of his songs. I love going to concerts, traveling and hanging out with my friends.
             I love to have conversations about the tech and music industries, so hit me up and let's talk!
         </p>
-        <p>Click here to see a fun fact about me!</p>
-        <button onclick="getFacts()">Fun Facts!</button>
-        <div id="fun-fact-container"></div>
+        <button onclick="getComments()">Comments!</button>
+        <ul id="comment-container"></ul>
 
 
+    </section>
+
+    <!-- comment form -->
+    <section id = "form">
+        <form action="/data" method = "POST">
+            <textarea rows="10" cols="70" name="comment">
+            Enter comment here...</textarea>
+            <input type="submit">       
+        </form>
+       
     </section>
   </body>
 </html>

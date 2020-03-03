@@ -45,20 +45,25 @@
             to almost every one of his songs. I love going to concerts, traveling and hanging out with my friends.
             I love to have conversations about the tech and music industries, so hit me up and let's talk!
         </p>
-        <button onclick="getComments()">Comments!</button>
-        <ul id="comment-container"></ul>
-
-
     </section>
 
+
     <!-- comment form -->
-    <section id = "form">
+    <section id="comment-section">
         <form action="/data" method = "POST">
             <textarea rows="10" cols="70" name="comment">
             Enter comment here...</textarea>
             <input type="submit">       
         </form>
-       
+
+         <div id = "display-comments">
+             <h4>Comments</h4>
+            <script>document.addEventListener('DOMContentLoaded', (event) => {
+                getComments();
+                });
+            </script>
+            <ul id="comment-container"></ul>
+        </div>
     </section>
   </body>
 </html>

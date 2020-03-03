@@ -13,6 +13,8 @@
 // limitations under the License.
 
 package com.google.sps.servlets;
+import com.google.appengine.api.datastore.PreparedQuery;
+import com.google.appengine.api.datastore.Query;
 import com.google.appengine.api.datastore.DatastoreService;
 import com.google.appengine.api.datastore.DatastoreServiceFactory;
 import com.google.appengine.api.datastore.Entity;
@@ -30,15 +32,18 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/data")
 public final class DataServlet extends HttpServlet {
 
-  private List<String> comments;
-
-  @Override
-  public void init() {
-    comments = new ArrayList<String>();
-  }
-
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    Query query = new Query("Comment");
+    DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+    PreparedQuery results = datastore.prepare(query);
+
+    List<String> comments = new ArrayList<>();
+
+    for (Entity entity : results.asIterable()) {
+        String comment = (String) entity.getProperty("comment");
+        comments.add(comment);
+    }
     //convert funFacts to json
     String json = new Gson().toJson(comments);
     //send JSON as response
@@ -53,9 +58,6 @@ public final class DataServlet extends HttpServlet {
     commentEntity.setProperty("comment", comment);
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
     datastore.put(commentEntity);
-    comments.add(comment);  
-    response.setContentType("text/html;");
-    response.getWriter().println(comments);
     response.sendRedirect("/index.html");
     }
 }

@@ -12,7 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-
+document.addEventListener('DOMContentLoaded', (event) => {
+                getComments();
+                });
 
 //import comments to html page and print on console
 function getComments() {
@@ -23,7 +25,7 @@ function getComments() {
     var i = 0;
     for (i = 0; i < comments.length; i++){
         commentsListElement.appendChild(
-        createListElement(comments[i]));
+        createListElement(comments[i].thought));
     }
   });
 }

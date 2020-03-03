@@ -23,8 +23,7 @@ function getComments() {
     var i = 0;
     for (i = 0; i < comments.length; i++){
         commentsListElement.appendChild(
-        createListElement('Comment: ' + comments[i]));
-        console.log(comments[i]);
+        createListElement(comments[i]));
     }
   });
 }

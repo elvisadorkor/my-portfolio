@@ -32,10 +32,12 @@ import javax.servlet.http.HttpServletResponse;
 /** Servlet that returns funFacts. */
 @WebServlet("/data")
 public final class DataServlet extends HttpServlet {
+
   public static class Comment{
       public final long id;
       public final String thought;
       public final long timestamp;
+      
       public Comment (long id, String thought,long timestamp){
           this.id = id;
           this.thought = thought;
@@ -45,7 +47,6 @@ public final class DataServlet extends HttpServlet {
 
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-    System.out.println("loading comments");
     Query query = new Query("Comment").addSort("timestamp", SortDirection.DESCENDING);
 
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
@@ -58,7 +59,6 @@ public final class DataServlet extends HttpServlet {
         String thought = (String) entity.getProperty("comment");
         long timestamp = (long) entity.getProperty("timestamp");
         Comment comment = new Comment(id, thought, timestamp);
-        System.out.println(entity);
         comments.add(comment);
     }
     //convert funFacts to json
@@ -80,7 +80,3 @@ public final class DataServlet extends HttpServlet {
     response.sendRedirect("/");
     }
 }
-
-
-
- 

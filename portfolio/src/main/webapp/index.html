@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <title>Elvis Adorkor's Portfolio</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDnu2fuTPF9BZwaQ6t0Bx7MBAtI1QYtLEg"></script>
     <script src="script.js"></script>
   </head>
-  <body>
+  <body onload="createMap();">
     <section id="banner">
         <nav id="top_nav">
             <img id="img" src="/images/elvis.jpeg" alt="elvis" style="width:70px;height:70px;">
@@ -60,6 +61,9 @@
              <h4>Comments</h4>
             <ul id="comment-container"></ul>
         </div>
+    </section>
+    <section id = "map-section">
+        <div id ="map"></div>
     </section>
   </body>
 </html>

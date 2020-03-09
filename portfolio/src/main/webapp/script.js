@@ -128,7 +128,7 @@ function createMap() {
 //     animation: google.maps.Animation.DROP,
 //     title: 'Paris'
 //   });
-    var cities = [
+    const cities = [
         ['Paris', 48.8566, 2.3522],
         ['London', 51.5074, 0.1278],
         ['Barcelona', 41.3851, 2.1734],

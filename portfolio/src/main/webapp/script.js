@@ -37,11 +37,24 @@ function createListElement(comment) {
   return liElement;
 }
 
+var markers = [];
+var map;
+const cities = [
+        ['Paris', {lat: 48.8566, lng: 2.3522}],
+        ['London', {lat: 51.5074, lng: 0.1278}],
+        ['Barcelona', {lng: 41.3851, lng: 2.1734}],
+        ['Copenhagen', {lat: 55.6761, lng: 12.5683}],
+        ['Santorini', {lat: 36.3932, lng: 25.4615}],
+        ['Florence', {lat: 43.7696, lng: 11.2558}],
+        ['Amsterdam', {lat: 52.3667, lng: 4.8945}],
+        ['Prague', {lat: 50.0755, lng: 14.4378}]
+];
+
 function createMap() {
-  var map = new google.maps.Map(
+      map = new google.maps.Map(
       document.getElementById('map'),
       {center: {lat: 54.5260, lng: 15.2551}, 
-      zoom: 3, 
+      zoom: 4, 
       styles: [
             {elementType: 'geometry', stylers: [{color: '#242f3e'}]},
             {elementType: 'labels.text.stroke', stylers: [{color: '#242f3e'}]},
@@ -122,28 +135,40 @@ function createMap() {
               stylers: [{color: '#17263c'}]
             }
           ]});
-//     var Paris = new google.maps.Marker({
-//     position: {lat: 48.8566, lng: 2.3522},
-//     map: map,
-//     animation: google.maps.Animation.DROP,
-//     title: 'Paris'
-//   });
-    const cities = [
-        ['Paris', 48.8566, 2.3522],
-        ['London', 51.5074, 0.1278],
-        ['Barcelona', 41.3851, 2.1734],
-        ['Copenhagen', 55.6761, 12.5683],
-        ['Santorini', 36.3932, 25.4615],
-        ['Florence', 43.7696, 11.2558],
-        ['Amsterdam', 52.3667, 4.8945],
-        ['Prague', 50.0755, 14.4378]
-];
-    var i = 0;
-    for(i = 0; i < cities.length; i++){
-        var marker = new google.maps.Marker({
-            position: {lat: cities[i][1], lng: cities[i][2]},
+}
+    // var i = 0;
+    // for(i = 0; i < cities.length; i++){
+    //     var city = cities[i][0];
+    //     var marker = new google.maps.Marker({
+    //         position: {lat: cities[i][1], lng: cities[i][2]},
+    //         map: map,
+    //         animation: google.maps.Animation.BOUNCE,
+    //         title: city
+    //     });
+    // }
+
+
+   function addMarkerWithTimeout(position, timeout, label) {
+        window.setTimeout(function() {
+          markers.push(new google.maps.Marker({
+            position: position,
             map: map,
-            title: cities[i][0]
-        });
+            label: label,
+            animation: google.maps.Animation.DROP
+          }));
+        }, timeout);
+      }
+
+ function clearMarkers() {
+        for (var i = 0; i < markers.length; i++) {
+          markers[i].setMap(null);
+        }
+        markers = [];
+      }
+
+  function drop() {
+        clearMarkers();
+        for (var i = 0; i < cities.length; i++) {
+          addMarkerWithTimeout(cities[i][1], i * 600, cities[i][0]);
     }
 }
